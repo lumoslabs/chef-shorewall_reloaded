@@ -42,13 +42,14 @@ template "/etc/shorewall/shorewall.conf"
 
 template "/etc/default/shorewall" do
   source "default.erb"
-  variables( 
+  variables(
     :startup => enabled,
     :default => node['shorewall']['default']
   )
 end
 
 service "shorewall" do
+	provider Chef::Provider::Service::Upstart
   supports [ :status, :restart ]
   if node['shorewall']['enabled']
     action [:start, :enable]
