@@ -49,7 +49,10 @@ template "/etc/default/shorewall" do
 end
 
 service "shorewall" do
-	provider Chef::Provider::Service::Upstart
+	start_command   "shorewall start"
+  stop_command    "shorewall stop"
+  restart_command "shorewall restart"
+  status_command  "shorewall status"
   supports [ :status, :restart ]
   if node['shorewall']['enabled']
     action [:start, :enable]
