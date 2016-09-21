@@ -23,8 +23,8 @@ elements=[
 ############################################################################################################################
 #ACTION         SOURCE          DEST            PROTO   DEST    SOURCE          ORIGINAL        RATE            USER/   MARK
 #                                                       PORT    PORT(S)         DEST            LIMIT           GROUP
-#SECTION ESTABLISHED
-#SECTION RELATED
-SECTION NEW
+#?SECTION ESTABLISHED
+#?SECTION RELATED
+?SECTION NEW
 <%= shorewall_format_file(elements, node['shorewall']['rules']) %>
 #LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
